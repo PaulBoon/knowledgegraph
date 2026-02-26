@@ -1,0 +1,18 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<http://example.org/people/PaulBoon>
+    a foaf:Person ;
+    foaf:name "Paul Boon" ;
+    foaf:mbox <mailto:paul.boon@dans.knaw.nl> ;
+    foaf:interest "Linked Data"@en ;
+    foaf:Organization "DANS"@en ;
+    schema:identifier <https://orcid.org/0000-0001-5386-277X> ;
+    foaf:knows [
+        a foaf:Person ;
+        foaf:name "Chris Baars"
+    ],
+    [a foaf:Person ;
+        foaf:name "Laura Huis in 't Veld"
+    ] .
