@@ -1,9 +1,12 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix schema: <https://schema.org/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix emp: <https://paulboon.github.io/knowledgegraph/employee.ttl#> .
+@prefix emp: <https://paulboon.github.io/knowledgegraph/vocab-employee.ttl#> .
 
-<https://paulboon.github.io/knowledgegraph/data.ttl#PaulBoon>
+<https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#PaulBoon> owl:sameAs <https://paulboon.github.io/knowledgegraph/person-paulboon.ttl#PaulBoon> .
+
+<https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#PaulBoon>
     a emp:Employee ;
     emp:worksAtOfficeDesk [
         a emp:OfficeDesk ;

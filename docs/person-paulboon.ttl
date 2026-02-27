@@ -2,7 +2,7 @@
 @prefix schema: <https://schema.org/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 
-<http://example.org/people/PaulBoon>
+<https://paulboon.github.io/knowledgegraph/person-paulboon.ttl#PaulBoon>
     a foaf:Person ;
     foaf:name "Paul Boon" ;
     foaf:mbox <mailto:paul.boon@dans.knaw.nl> ;
