@@ -7,9 +7,8 @@
     a emp:Employee ;
     emp:worksAtOfficeDesk [
         a emp:OfficeDesk ;
-        emp:inRoom "O2"^^<http://www.w3.org/2001/XMLSchema#string> ;
-        emp:inFloor 3;
-        emp:inOfficeBuilding <https://paulboon.github.io/knowledgegraph/data.ttl#DansOfficeBuilding>
+        emp:isElectricalAdjustable true ;
+        emp:isInRoom <https://paulboon.github.io/knowledgegraph/data.ttl#RoomO2> 
     ] ;
     foaf:name "Paul Boon" ;
     foaf:mbox <mailto:paul.boon@dans.knaw.nl> ;
@@ -22,22 +21,26 @@
     a emp:Employee ;
     emp:worksAtOfficeDesk [
         a emp:OfficeDesk ;
-        emp:inRoom "O2"^^<http://www.w3.org/2001/XMLSchema#string> ;
-        emp:inFloor 3;
-        emp:inOfficeBuilding <https://paulboon.github.io/knowledgegraph/data.ttl#DansOfficeBuilding>
-    ] ;
+        emp:isInRoom <https://paulboon.github.io/knowledgegraph/data.ttl#RoomO2> ;    ] ;
     foaf:name "Chris Baars" .
 
 <https://paulboon.github.io/knowledgegraph/data.ttl#LauraHuisInTVeld>
     a emp:Employee ;
     emp:worksAtOfficeDesk [
         a emp:OfficeDesk ;
-        emp:inRoom "O2"^^<http://www.w3.org/2001/XMLSchema#string> ;
-        emp:inFloor 3;
-        emp:inOfficeBuilding <https://paulboon.github.io/knowledgegraph/data.ttl#DansOfficeBuilding>
+        emp:isInRoom <https://paulboon.github.io/knowledgegraph/data.ttl#RoomO2> ;
     ] ;
     foaf:name "Laura Huis in 't Veld" .
 
+<https://paulboon.github.io/knowledgegraph/data.ttl#RoomO2>
+    a emp:OfficeRoom ;
+    emp:isSilence false ;
+    emp:isOnFloor 3 ;
+    emp:isInOfficeBuilding <https://paulboon.github.io/knowledgegraph/data.ttl#DansOfficeBuilding> ;
+    emp:hasName "O2" .
+
 <https://paulboon.github.io/knowledgegraph/data.ttl#DansOfficeBuilding>
     a emp:OfficeBuilding ;
-    emp:address "Anna van Saksenlaan 51, The Hague, Netherlands"@en .
+    emp:hasName "Java" ;
+    emp:hasAddress "Anna van Saksenlaan 51, The Hague, Netherlands"@en ;
+    emp:hasAddress "Anna van Saksenlaan 51, Den Haag, Nederland"@nl .

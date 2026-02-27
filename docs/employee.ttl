@@ -45,6 +45,11 @@
 # otherwise this grows out of proportion for the use case. 
 # In a more detailed model, these could be modeled as separate classes with their own properties and relationships.
 
+:OfficeRoom a owl:Class ;
+    rdfs:label "Office Room"@en ;
+    rdfs:label "Kantoor kamer"@nl ;
+    rdfs:comment "A room or confined space located in an office building"@en .
+
 
 # ===========================
 # Additional Properties for :Employee
@@ -79,28 +84,62 @@
     owl:maxCardinality 1 ;
     rdfs:comment "The address of the office building"@en .
  
+:hasName a owl:DatatypeProperty ;
+    rdfs:domain :OfficeBuilding ;
+    rdfs:range xsd:string ;
+    rdfs:label "has building name"@en ;
+    owl:maxCardinality 1 ;
+    rdfs:comment "The name of the office building"@en .
+
 
 # ===========================
 # Additional Properties for :OfficeDesk
 # ===========================
 
-:isInRoom a owl:DatatypeProperty ;
+:isElectricalAdjustable a owl:DatatypeProperty ;
     rdfs:domain :OfficeDesk ;
-    rdfs:range xsd:string ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "is electrically adjustable"@en ;
+    rdfs:comment "Indicates whether the office desk is electrically adjustable in height"@en ;
+    owl:maxCardinality 1 .
+
+:isInRoom a owl:ObjectProperty ;
+    rdfs:domain :OfficeDesk ;
+    rdfs:range :OfficeRoom ;
     rdfs:label "is in room"@en ;
     owl:maxCardinality 1 ;
-    rdfs:comment "The room number or name of the office desk, most likely unique within the office floor"@en .
+    rdfs:comment "The room of the office desk location"@en .
+
+
+# ===========================
+# Additional Properties for :
+# OfficeRoom 
+# ===========================
+
+:hasDoor a owl:DatatypeProperty ;
+    rdfs:domain :OfficeRoom ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "has door"@en ;
+    rdfs:comment "Indicates whether the office room has a door"@en ;
+    owl:maxCardinality 1 .
+
+:isSilence a owl:DatatypeProperty ;
+    rdfs:domain :OfficeRoom ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "is silence"@en ;
+    rdfs:comment "Indicates whether the office room is a silence room where talking is not allowed"@en ;
+    owl:maxCardinality 1 .
 
 :isOnFloor a owl:DatatypeProperty ;
-    rdfs:domain :OfficeDesk ;
+    rdfs:domain :OfficeRoom ;
     rdfs:range xsd:integer ;
     rdfs:label "is on floor"@en ;
-    rdfs:comment "The floor number where the office desk is located. Zero indicates the ground floor and negative numbers indicate basement levels"@en ;
+    rdfs:comment "The floor number where the office room is located. Zero indicates the ground floor and negative numbers indicate basement levels"@en ;
     owl:maxCardinality 1 .
 
 :isInOfficeBuilding a owl:ObjectProperty ;
-    rdfs:domain :OfficeDesk ;
+    rdfs:domain :OfficeRoom ;
     rdfs:range :OfficeBuilding ;
     rdfs:label "is in office building"@en ;
     owl:maxCardinality 1 ;
-    rdfs:comment "Indicates the office building where the office desk is located"@en .
+    rdfs:comment "Indicates the office building where the office room is located"@en .
