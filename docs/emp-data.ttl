@@ -1,0 +1,43 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix emp: <https://paulboon.github.io/knowledgegraph/employee.ttl#> .
+
+<https://paulboon.github.io/knowledgegraph/data.ttl#PaulBoon>
+    a emp:Employee ;
+    emp:worksAtOfficeDesk [
+        a emp:OfficeDesk ;
+        emp:inRoom "O2"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        emp:inFloor 3;
+        emp:inOfficeBuilding <https://paulboon.github.io/knowledgegraph/data.ttl#DansOfficeBuilding>
+    ] ;
+    foaf:name "Paul Boon" ;
+    foaf:mbox <mailto:paul.boon@dans.knaw.nl> ;
+    foaf:interest "Linked Data"@en ;
+    foaf:Organization "DANS"@en ;
+    schema:identifier <https://orcid.org/0000-0001-5386-277X> ;
+    foaf:knows <https://paulboon.github.io/knowledgegraph/data.ttl#ChrisBaars>, <https://paulboon.github.io/knowledgegraph/data.ttl#LauraHuisInTVeld> .
+
+<https://paulboon.github.io/knowledgegraph/data.ttl#ChrisBaars>
+    a emp:Employee ;
+    emp:worksAtOfficeDesk [
+        a emp:OfficeDesk ;
+        emp:inRoom "O2"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        emp:inFloor 3;
+        emp:inOfficeBuilding <https://paulboon.github.io/knowledgegraph/data.ttl#DansOfficeBuilding>
+    ] ;
+    foaf:name "Chris Baars" .
+
+<https://paulboon.github.io/knowledgegraph/data.ttl#LauraHuisInTVeld>
+    a emp:Employee ;
+    emp:worksAtOfficeDesk [
+        a emp:OfficeDesk ;
+        emp:inRoom "O2"^^<http://www.w3.org/2001/XMLSchema#string> ;
+        emp:inFloor 3;
+        emp:inOfficeBuilding <https://paulboon.github.io/knowledgegraph/data.ttl#DansOfficeBuilding>
+    ] ;
+    foaf:name "Laura Huis in 't Veld" .
+
+<https://paulboon.github.io/knowledgegraph/data.ttl#DansOfficeBuilding>
+    a emp:OfficeBuilding ;
+    emp:address "Anna van Saksenlaan 51, The Hague, Netherlands"@en .
