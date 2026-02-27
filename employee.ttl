@@ -1,0 +1,106 @@
+@prefix : <https://paulboon.github.io/knowledgegraph/employee.ttl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+# Ontology Metadata
+: a owl:Ontology ;
+    dcterms:title "Extended Person Vocabulary"@en ;
+    dcterms:description "An extension of FOAF for additional person workplace related properties"@en ;
+    owl:imports <http://xmlns.com/foaf/0.1/> ;
+    owl:versionInfo "1.0.0" .
+
+# ===========================
+# Extended Classes
+# ===========================
+
+:Employee a owl:Class ;
+    rdfs:subClassOf foaf:Person ;
+    rdfs:label "Employee"@en ;
+    rdfs:comment "A person employed, working for a company or organization"@en .
+
+# For simplicity of this use case we assume that we have employees that work at an office 
+# and nothing else is modeled here. 
+
+
+# ==========================
+# New Classes
+# ==========================
+
+:OfficeBuilding a owl:Class ;
+    rdfs:label "Office Building"@en ;
+    rdfs:label "Kantoor"@nl ;
+    rdfs:comment "A room or building where people work"@en .
+
+:OfficeDesk a owl:Class ;
+    rdfs:label "Office Desk"@en ;
+    rdfs:label "Kantoor bureau"@nl ;
+    rdfs:comment "A desk (workspace) located in an office"@en .
+
+# Not modeling the floor and room as separate classes, 
+# otherwise this grows out of proportion for the use case. 
+# In a more detailed model, these could be modeled as separate classes with their own properties and relationships.
+
+
+# ===========================
+# Additional Properties for :Employee
+# ===========================
+
+:worksAtOfficeDesk a owl:ObjectProperty ;
+    rdfs:domain :Employee ;
+    rdfs:range :OfficeDesk ;
+    rdfs:label "has office desk"@en ;
+    rdfs:comment "Indicates the desk at the office where an employee is working"@en .
+
+# Note that the desk can have a property indicating the office building where it is located,
+# but we can also directly link the employee to the office building directly
+# in this model these can be different, which would be strange
+
+:worksInOfficeBuilding a owl:ObjectProperty ;
+    rdfs:domain :Employee ;
+    rdfs:range :OfficeBuilding ;
+    rdfs:label "works in office building"@en ;
+    rdfs:comment "Indicates the office building where an employee works"@en .
+
+# ===========================
+# Additional Properties for :OfficeBuilding
+# =========================== 
+
+# For now the address is a string, but this is a candidate for a more complex model. 
+
+:hasAddress a owl:DatatypeProperty ;
+    rdfs:domain :OfficeBuilding ;
+    rdfs:range xsd:string ;
+    rdfs:label "has building address"@en ;
+    owl:maxCardinality 1 ;
+    rdfs:comment "The address of the office building"@en .
+ 
+
+# ===========================
+# Additional Properties for :OfficeDesk
+# ===========================
+
+:isInRoom a owl:DatatypeProperty ;
+    rdfs:domain :OfficeDesk ;
+    rdfs:range xsd:string ;
+    rdfs:label "is in room"@en ;
+    owl:maxCardinality 1 ;
+    rdfs:comment "The room number or name of the office desk, most likely unique within the office floor"@en .
+
+:isOnFloor a owl:DatatypeProperty ;
+    rdfs:domain :OfficeDesk ;
+    rdfs:range xsd:integer ;
+    rdfs:label "is on floor"@en ;
+    rdfs:comment "The floor number where the office desk is located. Zero indicates the ground floor and negative numbers indicate basement levels"@en ;
+    owl:maxCardinality 1 .
+
+:isInOfficeBuilding a owl:ObjectProperty ;
+    rdfs:domain :OfficeDesk ;
+    rdfs:range :OfficeBuilding ;
+    rdfs:label "is in office building"@en ;
+    owl:maxCardinality 1 ;
+    rdfs:comment "Indicates the office building where the office desk is located"@en .
