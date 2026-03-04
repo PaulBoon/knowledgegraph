@@ -5,44 +5,63 @@
 @prefix emp: <https://paulboon.github.io/knowledgegraph/vocab-employee.ttl#> .
 
 <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#PaulBoon> owl:sameAs <https://paulboon.github.io/knowledgegraph/person-paulboon.ttl#PaulBoon> .
+<https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#LauraHuisInTVeld> owl:sameAs <https://laurahuisintveld.github.io/KnowledgeGraph/data.ttl#LauraHuisintveld> .
+<https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#LaurensTobias> owl:sameAs <https://laurenstobias.com/#laurens-tobias> .
+
 
 <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#PaulBoon>
     a emp:Employee ;
     emp:worksAtOfficeDesk [
         a emp:OfficeDesk ;
         emp:isElectricalAdjustable true ;
-        emp:isInRoom <https://paulboon.github.io/knowledgegraph/data.ttl#RoomO2> 
+        emp:isInRoom <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#RoomO2> 
     ] ;
     foaf:name "Paul Boon" ;
     foaf:mbox <mailto:paul.boon@dans.knaw.nl> ;
     foaf:interest "Linked Data"@en ;
     foaf:Organization "DANS"@en ;
     schema:identifier <https://orcid.org/0000-0001-5386-277X> ;
-    foaf:knows <https://paulboon.github.io/knowledgegraph/data.ttl#ChrisBaars>, <https://paulboon.github.io/knowledgegraph/data.ttl#LauraHuisInTVeld> .
+    foaf:knows <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#ChrisBaars>, <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#LauraHuisInTVeld>, <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#LaurensTobias> .
 
-<https://paulboon.github.io/knowledgegraph/data.ttl#ChrisBaars>
+<https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#ChrisBaars>
     a emp:Employee ;
     emp:worksAtOfficeDesk [
         a emp:OfficeDesk ;
-        emp:isInRoom <https://paulboon.github.io/knowledgegraph/data.ttl#RoomO2> ;    ] ;
+        emp:isInRoom <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#RoomO2> ;    ] ;
     foaf:name "Chris Baars" .
 
-<https://paulboon.github.io/knowledgegraph/data.ttl#LauraHuisInTVeld>
+<https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#LauraHuisInTVeld>
     a emp:Employee ;
     emp:worksAtOfficeDesk [
         a emp:OfficeDesk ;
-        emp:isInRoom <https://paulboon.github.io/knowledgegraph/data.ttl#RoomO2> ;
+        emp:isInRoom <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#RoomO2> ;
     ] ;
     foaf:name "Laura Huis in 't Veld" .
 
-<https://paulboon.github.io/knowledgegraph/data.ttl#RoomO2>
+<https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#LaurensTobias>
+    a emp:Employee ;
+    emp:worksAtOfficeDesk [
+        a emp:OfficeDesk ;
+        emp:isElectricalAdjustable false ;
+        emp:isInRoom <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#RoomS1> ;
+    ] ;
+    foaf:name "Laurens Tobias" .
+
+<https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#RoomO2>
     a emp:OfficeRoom ;
     emp:isSilence false ;
     emp:isOnFloor 3 ;
-    emp:isInOfficeBuilding <https://paulboon.github.io/knowledgegraph/data.ttl#DansOfficeBuilding> ;
+    emp:isInOfficeBuilding <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#DansOfficeBuilding> ;
     emp:hasName "O2" .
 
-<https://paulboon.github.io/knowledgegraph/data.ttl#DansOfficeBuilding>
+<https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#RoomS1>
+    a emp:OfficeRoom ;
+    emp:isSilence true ;
+    emp:isOnFloor 3 ;
+    emp:isInOfficeBuilding <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#DansOfficeBuilding> ;
+    emp:hasName "S1" .
+
+<https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#DansOfficeBuilding>
     a emp:OfficeBuilding ;
     emp:hasName "Java" ;
     emp:hasAddress "Anna van Saksenlaan 51, The Hague, Netherlands"@en ;
