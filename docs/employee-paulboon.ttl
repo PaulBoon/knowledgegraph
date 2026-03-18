@@ -75,7 +75,7 @@
     a emp:Photo ;
     emp:title "Paul Boon"@en ;
     emp:description "Should be a photo of Paul Boon, but in reality my GitHub avatar"@en ;
-    emp:url "https://paulboon.github.io/knowledgegraph/GitHubAvatarPaulBoon.jpg" ;
+    emp:url <https://paulboon.github.io/knowledgegraph/GitHubAvatarPaulBoon.jpg> ;
     emp:location "The Matrix"@en ;
     emp:creator <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#PaulBoon> ;
     emp:peopleDepicted <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#PaulBoon> .
@@ -87,7 +87,7 @@
     emp:description "A group photo of the DANS employees"@en ;
     emp:location "The DANS office building; camera on the first floor, people on the ground floor"@en ;
     emp:peopleDepicted <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#PaulBoon>, <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#LauraHuisInTVeld>, <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#LaurensTobias> ;
-    emp:url "https://dans.knaw.nl/wp-content/uploads/2021/07/DANS_Groep-1.png" .
+    emp:url <https://dans.knaw.nl/wp-content/uploads/2021/07/DANS_Groep-1.png> .
 
 # Tempted to model the depiction of the DANS office building...
 
