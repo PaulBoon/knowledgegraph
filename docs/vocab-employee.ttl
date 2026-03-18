@@ -150,6 +150,7 @@
 # ===========================
 
 :Photo a owl:Class ;
+    rdfs:subClassOf foaf:Image ;
     rdfs:label "Photo"@en ;
     rdfs:comment "A photo; an image produced by a camera"@en .
 
@@ -168,8 +169,9 @@
     rdfs:comment "A description of the photo"@en .
 
 :peopleDepicted a owl:ObjectProperty ;
+    owl:equivalentProperty foaf:depicts ;
     rdfs:domain :Photo ;
-    rdfs:range :Employee ;
+    rdfs:range foaf:Person ;
     rdfs:label "depicts people"@en ;
     rdfs:comment "Indicates the people depicted in the photo"@en .
 
@@ -180,9 +182,11 @@
     owl:maxCardinality 1 ;
     rdfs:comment "The URL where the photo can be accessed"@en .
 
+# Note this is similar to the foaf:maker, but we used 'creator' already!
 :creator a owl:ObjectProperty ;
+    owl:equivalentProperty foaf:maker ;
     rdfs:domain :Photo ;
-    rdfs:range :Employee ;
+    rdfs:range foaf:Person ;
     rdfs:label "created by"@en ;
     rdfs:comment "Indicates the person who created the photo; took the picture"@en .
 
