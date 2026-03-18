@@ -167,3 +167,28 @@
     owl:maxCardinality 1 ;
     rdfs:comment "A description of the photo"@en .
 
+:peopleDepicted a owl:ObjectProperty ;
+    rdfs:domain :Photo ;
+    rdfs:range :Employee ;
+    rdfs:label "depicts people"@en ;
+    rdfs:comment "Indicates the people depicted in the photo"@en .
+
+:url a owl:DatatypeProperty ;
+    rdfs:domain :Photo ;
+    rdfs:range xsd:anyURI ;
+    rdfs:label "has URL"@en ;
+    owl:maxCardinality 1 ;
+    rdfs:comment "The URL where the photo can be accessed"@en .
+
+:creator a owl:ObjectProperty ;
+    rdfs:domain :Photo ;
+    rdfs:range :Employee ;
+    rdfs:label "created by"@en ;
+    rdfs:comment "Indicates the person who created the photo; took the picture"@en .
+
+:location a owl:DatatypeProperty ;
+    rdfs:domain :Photo ;
+    rdfs:range xsd:string ;
+    rdfs:label "has location"@en ;
+    owl:maxCardinality 1 ;
+    rdfs:comment "The location depicted in the photo; mostly the same as where the photo was taken. It is NOT where the photo itself is located, physically or digitally"@en .
