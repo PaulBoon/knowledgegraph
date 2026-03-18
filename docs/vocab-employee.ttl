@@ -176,13 +176,13 @@
     rdfs:comment "Indicates the people depicted in the photo"@en .
 
 :url a owl:DatatypeProperty ;
+    owl:equivalentProperty <https://schema.org/contentUrl> ;
     rdfs:domain :Photo ;
     rdfs:range xsd:anyURI ;
     rdfs:label "has URL"@en ;
     owl:maxCardinality 1 ;
     rdfs:comment "The URL where the photo can be accessed"@en .
 
-# Note this is similar to the foaf:maker, but we used 'creator' already!
 :creator a owl:ObjectProperty ;
     owl:equivalentProperty foaf:maker ;
     rdfs:domain :Photo ;
