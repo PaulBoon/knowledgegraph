@@ -143,3 +143,27 @@
     rdfs:label "is in office building"@en ;
     owl:maxCardinality 1 ;
     rdfs:comment "Indicates the office building where the office room is located"@en .
+
+
+# ===========================
+# Additions for Lab4
+# ===========================
+
+:Photo a owl:Class ;
+    rdfs:label "Photo"@en ;
+    rdfs:comment "A photo; an image produced by a camera"@en .
+
+:title a owl:DatatypeProperty ;
+    rdfs:domain :Photo ;
+    rdfs:range xsd:string ;
+    rdfs:label "has title"@en ;
+    owl:maxCardinality 1 ;
+    rdfs:comment "The title of the photo"@en .
+
+:description a owl:DatatypeProperty ;
+    rdfs:domain :Photo ;
+    rdfs:range xsd:string ;
+    rdfs:label "has description"@en ;
+    owl:maxCardinality 1 ;
+    rdfs:comment "A description of the photo"@en .
+

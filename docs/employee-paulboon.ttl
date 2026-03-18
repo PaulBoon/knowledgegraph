@@ -66,3 +66,14 @@
     emp:hasName "Java" ;
     emp:hasAddress "Anna van Saksenlaan 51, The Hague, Netherlands"@en ;
     emp:hasAddress "Anna van Saksenlaan 51, Den Haag, Nederland"@nl .
+
+# ===========================
+# Additions for Lab4
+# ===========================
+
+<https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#PhotoOfPaulBoon>
+    a emp:Photo ;
+    emp:title "Paul Boon"@en ;
+    emp:description "A photo of Paul Boon"@en .
+    #emp:depicts <https://paulboon.github.io/knowledgegraph/employee-paulboon.ttl#PaulBoon> ;
+
